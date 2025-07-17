@@ -1,0 +1,76 @@
+// --- Color Palette ---
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$accent-color: #e74c3c;
+$light-bg: #f4f4f4;
+$dark-bg: #2c3e50;
+$text-color: #333;
+$muted-text: #7f8c8d;
+$border-color: #bdc3c7;
+
+// --- Typography ---
+$font-family-primary: 'Roboto', sans-serif;
+$font-family-secondary: 'Arial', sans-serif;
+
+$font-size-base: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-sm: 0.875rem;
+$font-size-xsm: 0.75rem;
+
+$line-height-base: 1.6;
+$heading-font-size: 2rem;
+$subheading-font-size: 1.5rem;
+
+// --- Spacing ---
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 3rem;
+
+// --- Border Radius ---
+$border-radius: 0.5rem;
+$border-radius-lg: 1rem;
+
+// --- Box Shadows ---
+$box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+$box-shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
+$box-shadow-dark: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+// --- Breakpoints ---
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1200px;
+
+// --- Z-Index ---
+$z-index-default: 1;
+$z-index-modal: 1050;
+$z-index-tooltip: 1100;
+
+// --- Specific Section Styles ---
+
+// Intro Section
+$intro-bg: $primary-color;
+$intro-text-color: #fff;
+
+// Blog Section
+$blog-item-bg: #fff;
+$blog-item-border: $border-color;
+$blog-item-hover-bg: $light-bg;
+
+// Project Section
+$project-card-bg: $light-bg;
+$project-card-border: $border-color;
+$project-card-hover-bg: $primary-color;
+$project-card-hover-color: #fff;
+
+// Contact Section
+$contact-form-bg: $light-bg;
+$contact-input-border: $border-color;
+$contact-button-bg: $primary-color;
+$contact-button-hover-bg: $secondary-color;
+
+// Experience Section
+$experience-item-bg: #fff;
+$experience-item-border: $border-color;
+$experience-item-hover-bg: $light-bg;

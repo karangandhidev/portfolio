@@ -1,0 +1,12 @@
+.portfolio {
+    height: 100svh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.section {
+    min-height: 100svh;
+    scroll-snap-align: start;
+    background-color: #121212;
+}

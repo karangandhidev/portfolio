@@ -1,0 +1,74 @@
+@use '../_variables' as vars;
+
+#projects {
+    padding: 2rem;
+    background-color: #121212;
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+        color: #ffffff;
+    }
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #0A0A0A;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        color: #ffffff;
+        h3 {
+            font-size: 1.25rem;
+            color: #0070f3;
+        }
+        p {
+            font-size: 1rem;
+            color: #bbb;
+            margin-bottom: 1rem;
+        }
+        .button-row {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+
+            a {
+            flex: 1;
+            text-align: center;
+            padding: 0.5rem 1rem;
+            background-color: #1e1e1e;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+
+                &:hover {
+                    background-color: #333;
+                }
+            }
+        }
+    }
+    .showcase-projects {
+        margin-bottom: 3rem;
+        background-color: #121212;
+        h2 {
+            font-size: 2rem;
+            color: #0070f3;
+    
+        }
+    }
+    .other-projects {
+        background-color: #121212;
+        h2 {
+            font-size: 2rem;
+            color: #ffffff;
+    
+        }
+    }
+}
