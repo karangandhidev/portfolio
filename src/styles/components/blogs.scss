@@ -1,72 +1,111 @@
-@use '../_variables' as vars;
+@use "../_variables" as *;
 
-#blogs {
-    padding: 2rem;
-    background-color: #121212;
-    h2 {
-        text-align: center;
-        margin-bottom: 2rem;
-        font-size: 2rem;
-        color: #ffffff;
+section.blogs.section {
+  min-height: 100svh;
+  padding: $spacing-md 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h2 {
+    font-size: $heading-font-size;
+    color: $primary-color;
+    font-family: $font-family-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  .carousel-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .nav {
+      background: none;
+      color: #fff;
+      font-size: 2.5rem;
+      border: none;
+      cursor: pointer;
+      padding: 0 $spacing-sm;
+      user-select: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $primary-color;
+      }
     }
-    .blog-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1.5rem;
-    }
-    .blog-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background-color: #0A0A0A;
-        padding: 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        color: #ffffff;
-        h3 {
-            font-size: 1.25rem;
-            color: #0070f3;
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: $spacing-md;
+      padding: $spacing-sm 0;
+      width: 75vw;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .blog-card {
+        flex: 0 0 auto;
+        width: 25svw;
+        height: 50svh;
+        background: $text-color;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        scroll-snap-align: center;
+        box-shadow: $box-shadow-medium;
+
+        &.highlighted {
+          border: 3px solid #ffffff;
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.6),
+            0 0 16px rgba(255, 255, 255, 0.4), 0 0 24px rgba(255, 255, 255, 0.2);
+          border-radius: 12px; // optional, looks better with glow
+          transition: box-shadow 0.3s ease, border 0.3s ease;
         }
-        p {
-            font-size: 1rem;
-            color: #bbb;
-            margin-bottom: 1rem;
-        }
-        .button-row {
-            margin-top: auto;
+
+        a {
+          color: inherit;
+          text-decoration: none;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+          }
+
+          .content {
+            padding: $spacing-xs;
+            height: 15%;
             display: flex;
-            justify-content: space-between;
-            gap: 1rem;
+            flex-direction: column;
+            justify-content: center;
 
-            a {
-            flex: 1;
-            text-align: center;
-            padding: 0.5rem 1rem;
-            background-color: #1e1e1e;
-            color: white;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: background-color 0.2s ease;
-
-                &:hover {
-                    background-color: #333;
-                }
+            h3 {
+              font-size: $font-size-base;
+              margin: 0;
+              color: $primary-color;
+              margin-top: $spacing-sm;
+              font-family: $font-family-primary;
             }
+
+            p {
+              font-size: $font-size-sm;
+              color: #fff;
+              margin: 0.25rem 0 0;
+              text-overflow: ellipsis;
+              font-family: $font-family-secondary;
+            }
+          }
         }
+      }
     }
-    .featured-blogs {
-        margin-bottom: 3rem;
-        background-color: #121212;
-        h2 {
-            font-size: 2rem;
-            color: #0070f3;
-        }
-    }
-    .other-blogs {
-        background-color: #121212;
-        h2 {
-            font-size: 2rem;
-            color: #ffffff;
-        }
-    }
+  }
 }

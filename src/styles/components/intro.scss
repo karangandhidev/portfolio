@@ -1,20 +1,20 @@
-@use '../_variables' as vars;
+@use "../_variables" as *;
 
 .intro {
-    padding: 4rem 2rem;
-    background-color: vars.$light-bg;
-    text-align: center;
+  padding: 4rem 2rem;
+  background-color: $light-bg;
+  text-align: center;
 
-    h1 {
-        font-size: 3rem;
-        color: vars.$primary-color;
-    }
+  h1 {
+    font-size: 3rem;
+    color: $primary-color;
+  }
 
-    p {
-        margin-top: 1rem;
-        font-size: 1.25rem;
-        color: #444;
-        max-width: 800px;
-        margin-inline: auto;
-    }
+  p {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    max-width: 800px;
+    color: $light-bg;
+    margin-inline: auto;
+  }
 }

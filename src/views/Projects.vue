@@ -71,6 +71,11 @@ import "@/styles/components/projects.scss";
 
 const showcaseProjects = [
   {
+    name: "Mindweave – Visual Thinking, Simplified",
+    desc: "A minimalist, local-first canvas app for mapping out thoughts using draggable notes and connections. Built for clarity and focus, not chaos.",
+    link: "https://mindweave.karangandhi.dev",
+   },
+  {
     name: "Yelp Restaurant Recommendation System",
     desc: "A recommendation system for restaurants based on data analysis using the official Yelp dataset.",
     code: "https://github.com/karangandhidev/YelpRecommendationSystem",
