@@ -40,7 +40,3 @@ onMounted(() => {
   });
 });
 </script>
-
-<style scoped>
-/* Optional: Scoped styling if needed. Otherwise handled in SCSS file */
-</style>

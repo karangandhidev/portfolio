@@ -7,6 +7,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
+  z-index: 1000;
 
   .navbar {
     transform: translateY(0%);
@@ -22,6 +23,10 @@
       font-weight: 600;
       text-decoration: none;
       transition: color 0.3s ease;
+      @include mobile {
+        padding: ptr(12px) ptr(14px);
+        font-size: ptr(15px);
+      }
     }
 
     .navbar-items::after {
@@ -60,9 +65,3 @@
 }
 
 // Mobile styles
-@include mobile {
-  .navbar-wrapper .navbar .navbar-items {
-    padding: ptr(12px) ptr(14px);
-    font-size: ptr(15px);
-  }
-}
