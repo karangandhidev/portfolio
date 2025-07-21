@@ -1,0 +1,53 @@
+// ------------------------------
+// VARIABLES
+// ------------------------------
+
+$base-font-size: 16px;
+$max-content-width: 1440px;
+
+// Optional: scaling reference for dynamic font sizing
+$vw-scale: calc($base-font-size / $max-content-width) * 100vw;
+
+// ------------------------------
+// FUNCTIONS
+// ------------------------------
+
+/// Converts a pixel value to rem units based on $base-font-size
+/// @param {Number} $size - Size in px
+/// @param {Number} $base - Base font size (default: $base-font-size)
+@function ptr($size, $base: $base-font-size) {
+  @return calc($size / $base) * 1rem;
+}
+
+// ------------------------------
+// MEDIA QUERY MIXINS
+// ------------------------------
+
+/// Desktop screens (≥1440px)
+@mixin desktop {
+  @media only screen and (min-width: $max-content-width) {
+    @content;
+  }
+}
+
+/// Tablet screens (≥768px)
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+/// Mobile screens (≤767px)
+@mixin mobile {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+/// Custom max-width breakpoint
+/// @param {Number} $size - Max-width in px
+@mixin breakpoint($size) {
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}

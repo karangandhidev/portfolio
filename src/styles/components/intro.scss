@@ -1,20 +1,29 @@
 @use "../_variables" as *;
+@use "../_mixins" as *;
 
 .intro {
-  padding: 4rem 2rem;
+  padding: ptr(64px) ptr(32px);
   background-color: $light-bg;
   text-align: center;
 
   h1 {
-    font-size: 3rem;
+    font-size: ptr(48px);
     color: $primary-color;
+
+    @include mobile {
+      font-size: ptr(36px);
+    }
   }
 
   p {
-    margin-top: 1rem;
-    font-size: 1.25rem;
+    margin-top: ptr(16px);
+    font-size: ptr(20px);
     max-width: 800px;
     color: $light-bg;
     margin-inline: auto;
+
+    @include mobile {
+      font-size: ptr(16px);
+    }
   }
 }

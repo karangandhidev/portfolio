@@ -1,37 +1,40 @@
 <template>
   <section class="blogs section" id="blogs">
     <h2>My Blogs</h2>
-
     <div class="carousel-wrapper">
-      <button class="nav left" @click="scrollLeft">‹</button>
-
-      <div class="carousel" ref="carousel" @scroll="onScroll">
-        <div
-          v-for="(blog, index) in loopedBlogs"
-          :key="index"
-          class="blog-card"
-          :class="{ highlighted: index === centeredIndex }"
-        >
-          <a :href="blog.link" target="_blank">
-            <img :src="blog.image" alt="blog image" />
-            <div class="content">
-              <h3>{{ blog.name }}</h3>
-              <p>{{ blog.desc }}</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <button class="nav right" @click="scrollRight">›</button>
+      <Carousel
+        :items-to-show="itemsToShow"
+        :wrap-around="true"
+        :transition="500"
+        :snap-align="'center'"
+      >
+        <Slide v-for="blog in initialBlogs" :key="blog.name">
+          <div class="blog-card">
+            <a :href="blog.link" target="_blank">
+              <img :src="blog.image" alt="blog image" />
+              <div class="content">
+                <h3>{{ blog.name }}</h3>
+                <p>{{ blog.desc }}</p>
+              </div>
+            </a>
+          </div>
+        </Slide>
+        <template #addons>
+          <Navigation />
+          <Pagination />
+        </template>
+      </Carousel>
     </div>
   </section>
 </template>
 
 <script setup>
+import "vue3-carousel/dist/carousel.css";
 import "@/styles/components/blogs.scss";
-import { ref, onMounted, nextTick } from "vue";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import { ref, onMounted, onUnmounted } from "vue";
 
-const featuredBlogs = [
+const initialBlogs = [
   {
     name: "Migration of a legacy project from Vue 2 to Vue 3: A Deep Dive",
     desc: "Step-by-step breakdown of migrating a live production Vue 2 app to Vue 3, covering strategy, planning, compatibility mode, and key lessons…",
@@ -83,65 +86,24 @@ const featuredBlogs = [
   },
 ];
 
-const loopedBlogs = [...featuredBlogs, ...featuredBlogs, ...featuredBlogs];
+const itemsToShow = ref(2.5);
 
-const carousel = ref(null);
-const cardWidth = ref(0);
-const centeredIndex = ref(0);
-
-const scrollRight = () => {
-  carousel.value?.scrollBy({
-    left: cardWidth.value,
-    behavior: "smooth",
-  });
-};
-
-const scrollLeft = () => {
-  carousel.value?.scrollBy({
-    left: -cardWidth.value,
-    behavior: "smooth",
-  });
-};
-
-const onScroll = () => {
-  const container = carousel.value;
-  const scrollLeft = container.scrollLeft;
-  const containerCenter = scrollLeft + container.offsetWidth / 2;
-
-  const cards = container.querySelectorAll(".blog-card");
-  let minDiff = Infinity;
-  let closest = 0;
-
-  cards.forEach((card, index) => {
-    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-    const diff = Math.abs(containerCenter - cardCenter);
-    if (diff < minDiff) {
-      minDiff = diff;
-      closest = index;
-    }
-  });
-
-  centeredIndex.value = closest;
-
-  // Infinite scroll logic
-  const threshold = featuredBlogs.length;
-  const totalCards = loopedBlogs.length;
-
-  if (closest < threshold) {
-    container.scrollLeft += featuredBlogs.length * cardWidth.value;
-    centeredIndex.value += featuredBlogs.length;
-  } else if (closest > totalCards - threshold) {
-    container.scrollLeft -= featuredBlogs.length * cardWidth.value;
-    centeredIndex.value -= featuredBlogs.length;
+const updateItemsToShow = () => {
+  if (window.innerWidth < 768) {
+    itemsToShow.value = 1.15;
+  } else if (window.innerWidth < 1200) {
+    itemsToShow.value = 2.5;
+  } else {
+    itemsToShow.value = 3;
   }
 };
 
-onMounted(async () => {
-  await nextTick();
-  const card = carousel.value?.querySelector(".blog-card");
-  cardWidth.value = card.offsetWidth + 16;
+onMounted(() => {
+  updateItemsToShow();
+  window.addEventListener("resize", updateItemsToShow);
+});
 
-  // Start at center
-  carousel.value.scrollLeft = featuredBlogs.length * cardWidth.value;
+onUnmounted(() => {
+  window.removeEventListener("resize", updateItemsToShow);
 });
 </script>

@@ -1,3 +1,6 @@
+@use "_variables" as *;
+@use "_mixins" as *;
+
 .navbar-wrapper {
   position: fixed;
   top: 0;
@@ -14,7 +17,7 @@
 
     .navbar-items {
       position: relative;
-      padding: 1rem;
+      padding: ptr(16px);
       color: #f8f8ff;
       font-weight: 600;
       text-decoration: none;
@@ -25,9 +28,9 @@
       content: "";
       position: absolute;
       left: 50%;
-      bottom: 0.7rem;
+      bottom: 0.7rem; // Positioning, not converted
       width: 80%;
-      height: 3px;
+      height: 3px; // Not a spacing property
       background: #f8f8ff;
       transform: translateX(-50%) scaleX(0);
       transform-origin: center;
@@ -54,4 +57,12 @@
 
 .navbar-wrapper.visible .navbar {
   transform: translateY(0%);
+}
+
+// Mobile styles
+@include mobile {
+  .navbar-wrapper .navbar .navbar-items {
+    padding: ptr(12px) ptr(14px);
+    font-size: ptr(15px);
+  }
 }

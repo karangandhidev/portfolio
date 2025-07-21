@@ -1,37 +1,66 @@
 @use "../_variables" as *;
+@use "../_mixins" as *;
 
 #projects {
-  padding: 2rem;
+  padding: ptr(48px) ptr(32px);
   background-color: #121212;
+
   h2 {
     text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #ffffff;
+    margin-bottom: ptr(32px);
+    font-size: ptr(32px);
+    color: $primary-color;
+
+    @include mobile {
+      font-size: ptr(28px);
+      margin-bottom: ptr(24px);
+    }
   }
+
   .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
   }
+
   .project-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #0a0a0a;
-    padding: 1.5rem;
+    padding: ptr(24px);
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    color: #ffffff;
+    color: $intro-text-color;
+
+    @include mobile {
+      padding: ptr(16px);
+    }
+
     h3 {
-      font-size: 1.25rem;
-      color: #0070f3;
+      font-size: ptr(20px);
+      color: $primary-color;
+
+      @include mobile {
+        font-size: ptr(18px);
+      }
     }
+
     p {
-      font-size: 1rem;
+      font-size: ptr(16px);
       color: #bbb;
-      margin-bottom: 1rem;
+      margin-bottom: ptr(16px);
+
+      @include mobile {
+        font-size: ptr(15px);
+      }
     }
+
     .button-row {
       margin-top: auto;
       display: flex;
@@ -41,7 +70,7 @@
       a {
         flex: 1;
         text-align: center;
-        padding: 0.5rem 1rem;
+        padding: ptr(8px) ptr(16px);
         background-color: #1e1e1e;
         color: white;
         border-radius: 6px;
@@ -51,22 +80,34 @@
         &:hover {
           background-color: #333;
         }
+
+        @include mobile {
+          padding: ptr(8px) ptr(12px);
+        }
       }
     }
   }
+
   .showcase-projects {
-    margin-bottom: 3rem;
+    margin-bottom: ptr(48px);
     background-color: #121212;
+
+    @include mobile {
+      margin-bottom: ptr(32px);
+    }
+
     h2 {
-      font-size: 2rem;
-      color: #0070f3;
+      font-size: ptr(32px);
+      color: $primary-color;
     }
   }
+
   .other-projects {
     background-color: #121212;
+
     h2 {
-      font-size: 2rem;
-      color: #ffffff;
+      font-size: ptr(32px);
+      color: $intro-text-color;
     }
   }
 }

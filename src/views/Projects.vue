@@ -1,7 +1,7 @@
 <template>
   <section class="projects section" id="projects">
+    <h2>Project Showcase</h2>
     <div class="showcase-projects">
-      <h2>Project Showcase</h2>
       <div class="project-grid">
         <div
           v-for="(proj, idx) in showcaseProjects"
@@ -74,7 +74,7 @@ const showcaseProjects = [
     name: "Mindweave – Visual Thinking, Simplified",
     desc: "A minimalist, local-first canvas app for mapping out thoughts using draggable notes and connections. Built for clarity and focus, not chaos.",
     link: "https://mindweave.karangandhi.dev",
-   },
+  },
   {
     name: "Yelp Restaurant Recommendation System",
     desc: "A recommendation system for restaurants based on data analysis using the official Yelp dataset.",

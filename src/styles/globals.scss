@@ -2,7 +2,7 @@
 @use "./main";
 
 :root {
-  --background: #ffffff;
+  --background: $intro-text-color;
   --foreground: #171717;
 }
 

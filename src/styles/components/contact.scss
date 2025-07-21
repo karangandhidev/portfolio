@@ -1,54 +1,41 @@
 @use "../_variables" as *;
+@use "../_mixins" as *;
+
 .contact {
-  padding: 4rem 2rem;
+  padding: ptr(64px) ptr(32px);
   text-align: center;
 
   h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: ptr(32px);
+    margin-bottom: ptr(32px);
     color: $primary-color;
+
+    @include mobile {
+      font-size: ptr(28px);
+      margin-bottom: ptr(24px);
+    }
   }
 
   .contact-list {
     list-style: none;
     padding: 0;
-    margin: 0 auto 3rem;
+    margin: 0 auto ptr(48px);
     max-width: 400px;
 
+    @include mobile {
+      margin-bottom: ptr(32px);
+    }
+
     li {
-      margin: 1rem 0;
-      font-size: 1.1rem;
+      margin: ptr(16px) 0;
+      font-size: ptr(17.6px);
+
+      @include mobile {
+        font-size: ptr(16px);
+      }
 
       a {
-        color: $primary-color;
-        text-decoration: none;
-        position: relative;
-        transition: color 0.2s ease;
-
-        &::after {
-          content: "";
-          position: absolute;
-          left: 50%;
-          bottom: -4px;
-          width: 80%;
-          height: 2px;
-          background: $light-bg;
-          transform: translateX(-50%) scaleX(0);
-          transform-origin: center;
-          transition: transform 0.3s ease-in-out;
-
-          filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9))
-            drop-shadow(0 0 12px rgba(255, 255, 255, 0.7))
-            drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
-        }
-
-        &:hover::after {
-          transform: translateX(-50%) scaleX(1);
-        }
-
-        &:hover {
-          color: lighten($light-bg, 10%);
-        }
+        // ...
       }
     }
   }
@@ -64,24 +51,33 @@
     input,
     textarea {
       width: 100%;
-      padding: 0.8rem 1rem;
+      padding: ptr(12.8px) ptr(16px);
       background: transparent;
       border: 1px solid $primary-color;
       border-radius: 8px;
       color: white;
-      font-size: 1rem;
+      font-size: ptr(16px);
       resize: none;
+
+      @include mobile {
+        font-size: ptr(15px);
+        padding: ptr(12px) ptr(12px);
+      }
     }
 
     button {
       background: $primary-color;
       color: black;
       font-weight: 600;
-      padding: 0.75rem 2rem;
+      padding: ptr(12px) ptr(32px);
       border: none;
       border-radius: 8px;
       cursor: not-allowed;
       opacity: 0.5;
+
+      @include mobile {
+        padding: ptr(12px) ptr(24px);
+      }
     }
   }
 }

@@ -1,71 +1,67 @@
 @use "../_variables" as *;
+@use "../_mixins" as *;
 
 section.blogs.section {
   min-height: 100svh;
-  padding: $spacing-md 0;
-  color: #fff;
+  padding: ptr(80px) ptr(32px);
+  color: $intro-text-color;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   text-align: center;
+  position: relative;
+  @include mobile {
+    padding: ptr(48px) ptr(16px);
+  }
 
   h2 {
     font-size: $heading-font-size;
     color: $primary-color;
     font-family: $font-family-primary;
-    margin-bottom: $spacing-sm;
+    margin-bottom: $spacing-md;
   }
-
   .carousel-wrapper {
     flex-grow: 1;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-
-    .nav {
-      background: none;
-      color: #fff;
-      font-size: 2.5rem;
-      border: none;
-      cursor: pointer;
-      padding: 0 $spacing-sm;
-      user-select: none;
-      transition: color 0.2s;
-
-      &:hover {
-        color: $primary-color;
-      }
-    }
 
     .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      gap: $spacing-md;
-      padding: $spacing-sm 0;
-      width: 75vw;
+      width: 90%;
+      max-width: 1400px;
+      position: relative;
 
-      &::-webkit-scrollbar {
-        display: none;
+      .carousel__slide {
+        padding: ptr(12px);
+
+        &--active {
+          .blog-card {
+            transform: scale(1.05);
+            border-color: $intro-text-color;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+          }
+        }
       }
 
       .blog-card {
-        flex: 0 0 auto;
-        width: 25svw;
+        width: 100%;
         height: 50svh;
         background: $text-color;
         border-radius: $border-radius-lg;
-        overflow: hidden;
-        scroll-snap-align: center;
         box-shadow: $box-shadow-medium;
+        border: 3px solid transparent;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        transition: transform 0.4s ease, border-color 0.4s ease;
 
-        &.highlighted {
-          border: 3px solid #ffffff;
-          box-shadow: 0 0 20px rgba(255, 255, 255, 0.6),
-            0 0 16px rgba(255, 255, 255, 0.4), 0 0 24px rgba(255, 255, 255, 0.2);
-          border-radius: 12px; // optional, looks better with glow
-          transition: box-shadow 0.3s ease, border 0.3s ease;
+        @include mobile {
+          height: 55svh;
         }
 
         a {
@@ -74,35 +70,98 @@ section.blogs.section {
           height: 100%;
           display: flex;
           flex-direction: column;
+        }
 
-          img {
-            width: 100%;
-            height: 80%;
-            object-fit: cover;
+        img {
+          width: 100%;
+          height: 60%;
+          object-fit: cover;
+        }
+
+        .content {
+          padding: $spacing-sm;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          h3 {
+            font-size: $font-size-base;
+            margin: 0 0 ptr(8px) 0;
+            color: $primary-color;
           }
 
-          .content {
-            padding: $spacing-xs;
-            height: 15%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+          p {
+            font-size: $font-size-sm;
+            color: $intro-text-color;
+            line-height: 1.4;
+          }
+        }
+      }
 
-            h3 {
-              font-size: $font-size-base;
-              margin: 0;
-              color: $primary-color;
-              margin-top: $spacing-sm;
-              font-family: $font-family-primary;
-            }
+      .carousel__prev,
+      .carousel__next {
+        box-sizing: content-box;
+        background: rgba(20, 20, 20, 0.5);
+        color: $intro-text-color;
+        width: ptr(48px);
+        height: ptr(48px);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        cursor: pointer;
+        transition: color 0.2s ease, background-color 0.2s ease;
 
-            p {
-              font-size: $font-size-sm;
-              color: #fff;
-              margin: 0.25rem 0 0;
-              text-overflow: ellipsis;
-              font-family: $font-family-secondary;
-            }
+        &:hover {
+          color: $primary-color;
+          background: rgba(0, 0, 0, 0.7);
+        }
+
+        @include mobile {
+          width: ptr(40px);
+          height: ptr(40px);
+        }
+      }
+
+      .carousel__prev {
+        left: ptr(-60px);
+        @include mobile {
+          left: ptr(5px);
+        }
+      }
+
+      .carousel__next {
+        right: ptr(-60px);
+        @include mobile {
+          right: ptr(5px);
+        }
+      }
+
+      .carousel__pagination {
+        position: absolute;
+        bottom: ptr(-40px);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: ptr(12px);
+
+        .carousel__pagination-button {
+          padding: 0;
+          border: none;
+          background: transparent;
+
+          &::after {
+            content: "";
+            display: block;
+            width: ptr(24px);
+            height: ptr(4px);
+            background-color: #555;
+            border-radius: ptr(2px);
+          }
+          &--active::after {
+            background-color: $primary-color;
           }
         }
       }
