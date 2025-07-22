@@ -76,6 +76,11 @@ const showcaseProjects = [
     link: "https://mindweave.karangandhi.dev",
   },
   {
+    name: "Reddit Subscription Manager",
+    desc: "A fast, privacy-respecting tool to manage your Reddit subscriptions in bulk. Filter Normal or NSFW subreddits, sort by subscribed or unsubscribed, manage multi-feeds, and batch unsubscribe — all with offline storage and no tracking.",
+    link: "https://redditbulksubtool.karangandhi.dev",
+  },
+  {
     name: "Yelp Restaurant Recommendation System",
     desc: "A recommendation system for restaurants based on data analysis using the official Yelp dataset.",
     code: "https://github.com/karangandhidev/YelpRecommendationSystem",
