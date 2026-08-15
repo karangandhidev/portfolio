@@ -27,16 +27,6 @@
           karangandhidev
         </a>
       </li>
-      <li>
-        <strong>Support:</strong>
-        <a
-          href="https://coff.ee/karangandhi"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Buy me a coffee
-        </a>
-      </li>
     </ul>
 
     <form class="contact-form" @submit.prevent>

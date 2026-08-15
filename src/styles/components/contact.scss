@@ -2,40 +2,57 @@
 @use "../_mixins" as *;
 
 .contact {
-  padding: ptr(48px) ptr(32px);
-  text-align: center;
+  padding: ptr(80px) ptr(32px) ptr(64px);
+  max-width: 640px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
 
   h2 {
-    font-size: ptr(32px);
-    margin-bottom: ptr(32px);
-    color: $primary-color;
+    font-size: ptr(28px);
+    margin-bottom: ptr(28px);
+    color: $text-color;
 
     @include mobile {
-      font-size: ptr(28px);
-      margin-bottom: ptr(24px);
+      font-size: ptr(24px);
     }
   }
 
   .contact-list {
     list-style: none;
     padding: 0;
-    margin: 0 auto ptr(48px);
-    max-width: 400px;
+    margin: 0 0 ptr(48px);
 
     @include mobile {
       margin-bottom: ptr(32px);
     }
 
     li {
-      margin: ptr(16px) 0;
-      font-size: ptr(17.6px);
+      margin: ptr(14px) 0;
+      font-size: ptr(15px);
+      font-family: $font-mono;
+      color: $muted-text;
+      display: flex;
+      gap: ptr(10px);
 
-      @include mobile {
-        font-size: ptr(16px);
+      strong {
+        color: $text-color;
+        min-width: 90px;
       }
 
       a {
-        // ...
+        color: $muted-text;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $cyan;
+        }
+      }
+
+      @include mobile {
+        font-size: ptr(14px);
       }
     }
   }
@@ -43,40 +60,51 @@
   .contact-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
     max-width: 500px;
-    margin: 0 auto;
 
     input,
     textarea {
       width: 100%;
-      padding: ptr(12.8px) ptr(16px);
-      background: transparent;
-      border: 1px solid $primary-color;
+      padding: ptr(12px) ptr(16px);
+      background: $panel;
+      border: 1px solid $line;
       border-radius: 8px;
-      color: white;
-      font-size: ptr(16px);
+      color: $text-color;
+      font-family: $font-body;
+      font-size: ptr(15px);
       resize: none;
 
+      &::placeholder {
+        color: $muted-text;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $cyan;
+      }
+
       @include mobile {
-        font-size: ptr(15px);
-        padding: ptr(12px) ptr(12px);
+        font-size: ptr(14px);
+        padding: ptr(12px);
       }
     }
 
     button {
-      background: $primary-color;
-      color: black;
+      background: $cyan;
+      color: $bg;
+      font-family: $font-mono;
       font-weight: 600;
-      padding: ptr(12px) ptr(32px);
+      font-size: ptr(13px);
+      padding: ptr(12px) ptr(28px);
       border: none;
       border-radius: 8px;
       cursor: not-allowed;
       opacity: 0.5;
+      align-self: flex-start;
 
       @include mobile {
-        padding: ptr(12px) ptr(24px);
+        padding: ptr(12px) ptr(20px);
       }
     }
   }

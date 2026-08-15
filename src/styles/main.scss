@@ -1,12 +1,15 @@
+@use "./_variables" as *;
+
 .portfolio {
-    height: 100svh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+  height: 100svh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
 .section {
-    min-height: 100svh;
-    scroll-snap-align: start;
-    background-color: #121212;
+  min-height: 100svh;
+  scroll-snap-align: start;
+  background-color: $bg;
+  border-bottom: 1px solid $line;
 }

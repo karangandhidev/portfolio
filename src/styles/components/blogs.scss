@@ -3,25 +3,31 @@
 
 section.blogs.section {
   min-height: 100svh;
-  padding: ptr(48px) ptr(32px);
-  color: $intro-text-color;
+  padding: ptr(80px) ptr(32px);
+  color: $text-color;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: center;
   position: relative;
+  background-color: $bg;
+
   @include mobile {
-    padding: ptr(48px) ptr(16px);
+    padding: ptr(56px) ptr(16px);
   }
 
   h2 {
-    font-size: $heading-font-size;
-    color: $primary-color;
-    font-family: $font-family-primary;
+    font-size: ptr(28px);
+    color: $text-color;
     margin-bottom: $spacing-md;
+
+    @include mobile {
+      font-size: ptr(24px);
+    }
   }
+
   .carousel-wrapper {
     flex-grow: 1;
     width: 100%;
@@ -40,9 +46,8 @@ section.blogs.section {
 
         &--active {
           .blog-card {
-            transform: scale(1.05);
-            border-color: $intro-text-color;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            transform: scale(1.03);
+            border-color: $cyan;
           }
         }
       }
@@ -50,15 +55,15 @@ section.blogs.section {
       .blog-card {
         width: 100%;
         height: 50svh;
-        background: $text-color;
+        background: $panel;
         border-radius: $border-radius-lg;
         box-shadow: $box-shadow-medium;
-        border: 3px solid transparent;
+        border: 1px solid $line;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         text-align: left;
-        transition: transform 0.4s ease, border-color 0.4s ease;
+        transition: transform 0.3s ease, border-color 0.3s ease;
 
         @include mobile {
           height: 55svh;
@@ -74,8 +79,9 @@ section.blogs.section {
 
         img {
           width: 100%;
-          height: 60%;
+          height: 55%;
           object-fit: cover;
+          filter: saturate(0.85);
         }
 
         .content {
@@ -86,15 +92,17 @@ section.blogs.section {
           justify-content: center;
 
           h3 {
-            font-size: $font-size-base;
+            font-family: $font-display;
+            font-size: ptr(16px);
+            font-weight: 600;
             margin: 0 0 ptr(8px) 0;
-            color: $primary-color;
+            color: $text-color;
           }
 
           p {
             font-size: $font-size-sm;
-            color: $intro-text-color;
-            line-height: 1.4;
+            color: $muted-text;
+            line-height: 1.5;
           }
         }
       }
@@ -102,40 +110,41 @@ section.blogs.section {
       .carousel__prev,
       .carousel__next {
         box-sizing: content-box;
-        background: rgba(20, 20, 20, 0.5);
-        color: $intro-text-color;
-        width: ptr(48px);
-        height: ptr(48px);
+        background: $panel-2;
+        border: 1px solid $line;
+        color: $text-color;
+        width: ptr(44px);
+        height: ptr(44px);
         border-radius: 50%;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         z-index: 10;
         cursor: pointer;
-        transition: color 0.2s ease, background-color 0.2s ease;
+        transition: color 0.2s ease, border-color 0.2s ease;
 
         &:hover {
-          color: $primary-color;
-          background: rgba(0, 0, 0, 0.7);
+          color: $cyan;
+          border-color: $cyan;
         }
 
         @include mobile {
-          width: ptr(40px);
-          height: ptr(40px);
+          width: ptr(38px);
+          height: ptr(38px);
         }
       }
 
       .carousel__prev {
-        left: ptr(-60px);
+        left: ptr(-56px);
         @include mobile {
-          left: ptr(5px);
+          left: ptr(4px);
         }
       }
 
       .carousel__next {
-        right: ptr(-60px);
+        right: ptr(-56px);
         @include mobile {
-          right: ptr(5px);
+          right: ptr(4px);
         }
       }
 
@@ -145,7 +154,7 @@ section.blogs.section {
         left: 50%;
         transform: translateX(-50%);
         display: flex;
-        gap: ptr(12px);
+        gap: ptr(10px);
 
         .carousel__pagination-button {
           padding: 0;
@@ -155,13 +164,13 @@ section.blogs.section {
           &::after {
             content: "";
             display: block;
-            width: ptr(24px);
-            height: ptr(4px);
-            background-color: #555;
+            width: ptr(22px);
+            height: ptr(3px);
+            background-color: $line;
             border-radius: ptr(2px);
           }
           &--active::after {
-            background-color: $primary-color;
+            background-color: $cyan;
           }
         }
       }

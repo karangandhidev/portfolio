@@ -2,25 +2,29 @@
 @use "../_mixins" as *;
 
 #projects {
-  padding: ptr(48px) ptr(32px);
-  background-color: #121212;
+  padding: ptr(80px) ptr(32px);
+  background-color: $bg;
+  max-width: 940px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h2 {
-    text-align: center;
     margin-bottom: ptr(32px);
-    font-size: ptr(32px);
-    color: $primary-color;
+    font-size: ptr(28px);
+    color: $text-color;
 
     @include mobile {
-      font-size: ptr(28px);
+      font-size: ptr(24px);
       margin-bottom: ptr(24px);
     }
   }
 
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
 
     @include mobile {
       grid-template-columns: 1fr;
@@ -32,53 +36,63 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #0a0a0a;
-    padding: ptr(24px);
+    background-color: $panel;
+    border: 1px solid $line;
+    padding: ptr(22px);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    color: $intro-text-color;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+      border-color: $cyan;
+    }
 
     @include mobile {
       padding: ptr(16px);
     }
 
     h3 {
-      font-size: ptr(20px);
-      color: $primary-color;
+      font-family: $font-display;
+      font-size: ptr(18px);
+      font-weight: 600;
+      color: $text-color;
+      margin-bottom: ptr(10px);
 
       @include mobile {
-        font-size: ptr(18px);
+        font-size: ptr(16px);
       }
     }
 
     p {
-      font-size: ptr(16px);
-      color: #bbb;
-      margin-bottom: ptr(16px);
+      font-size: ptr(14.5px);
+      color: $muted-text;
+      margin-bottom: ptr(18px);
+      line-height: 1.6;
 
       @include mobile {
-        font-size: ptr(15px);
+        font-size: ptr(14px);
       }
     }
 
     .button-row {
       margin-top: auto;
       display: flex;
-      justify-content: space-between;
-      gap: 1rem;
+      gap: 0.75rem;
+      flex-wrap: wrap;
 
       a {
-        flex: 1;
+        font-family: $font-mono;
+        font-size: ptr(12px);
         text-align: center;
-        padding: ptr(8px) ptr(16px);
-        background-color: #1e1e1e;
-        color: white;
+        padding: ptr(8px) ptr(14px);
+        border: 1px solid $line;
+        color: $text-color;
         border-radius: 6px;
         text-decoration: none;
-        transition: background-color 0.2s ease;
+        transition: border-color 0.2s ease, color 0.2s ease;
 
         &:hover {
-          background-color: #333;
+          border-color: $cyan;
+          color: $cyan;
         }
 
         @include mobile {
@@ -89,25 +103,17 @@
   }
 
   .showcase-projects {
-    margin-bottom: ptr(48px);
-    background-color: #121212;
+    margin-bottom: ptr(56px);
 
     @include mobile {
-      margin-bottom: ptr(32px);
-    }
-
-    h2 {
-      font-size: ptr(32px);
-      color: $primary-color;
+      margin-bottom: ptr(36px);
     }
   }
 
   .other-projects {
-    background-color: #121212;
-
     h2 {
-      font-size: ptr(32px);
-      color: $intro-text-color;
+      font-size: ptr(20px);
+      color: $muted-text;
     }
   }
 }

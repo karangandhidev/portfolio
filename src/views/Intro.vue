@@ -1,42 +1,58 @@
 <template>
   <section class="intro section" id="intro">
+    <div class="eyebrow">Backend / Full-stack Engineer</div>
     <h1>Karan Gandhi</h1>
 
     <p>
-      I’m a systems-driven Software Engineer with a passion for building
-      thoughtful and durable software. I care deeply about clarity, in code,
-      design, and purpose. My approach begins with a real-world need, evolving
-      through calm iteration and a commitment to strong, reliable solutions. I
-      don’t follow trends; I solve problems.
+      I'm a Backend / Full-stack Software Engineer. Currently at
+      <strong>Google Operations Center</strong>, I lead architectural
+      decisions for scalable, configuration-driven email template systems —
+      owning end-to-end implementation across HTML, CSS, and Apache
+      FreeMarker, including custom Google Apps Script tooling for validation
+      and workflow automation.
     </p>
     <br />
 
     <p>
-      In my role at Dentsu Global Services, I've improved performance by 20% by
-      migrating and modernizing legacy projects and reduced technical debt by
-      30% through strategic code streamlining. I build scalable RESTful APIs
-      with Node.js and have experience with both SQL (MySQL, PostgreSQL) and
-      NoSQL (MongoDB) databases.
+      Previously at Dentsu Global Services, I designed modular RESTful APIs
+      on Node.js and MySQL supporting high-traffic production systems, with
+      JWT-based auth and Redis caching for faster response times. I also cut
+      code complexity by 30% by decoupling 50+ tightly coupled conditions,
+      and led a large-scale Vue 2 → 3 migration across 5+ live projects —
+      streamlining 12k+ lines across 160+ files without breaking production.
     </p>
     <br />
 
     <p>
-      I’m fluent in the full web stack, with a strong command of JavaScript,
-      TypeScript, Vue.js, and Node.js. My project work, like the "MindWeave"
-      brainstorming tool and the "Shashwat Society Dashboard," demonstrates my
-      ability to build full-stack applications with modern technologies like
-      Next.js, Postgres, and Supabase. I focus on creating systems that are
-      resilient, scalable, and maintainable.
+      My project work extends that into full ownership: <strong>MindWeave</strong>
+      is a real-time, offline-first sync engine built on Postgres and
+      Supabase, and the <strong>Shashwat Society Dashboard</strong> is a
+      full-featured ticketing system built end-to-end on Next.js and
+      Postgres. I care about systems that hold up under real load and stay
+      maintainable after I've moved on.
     </p>
     <br />
 
     <p>
-      If you're looking for someone who builds deliberately and with long-term
-      clarity in mind, I might be a good fit. I bring engineering discipline, a
-      design-oriented perspective, and a deep respect for the user's experience
-      to every project.
+      Open to backend, full-stack, and finance/product engineering roles.
+      I'm happy to walk through the architecture behind any of the systems
+      below.
     </p>
-    <br />
+
+    <div class="trace">
+      <div class="trace-label">// request lifecycle — as built</div>
+      <div class="trace-row">
+        <div class="node">Client<span class="k">web / mobile</span></div>
+        <div class="seg"></div>
+        <div class="node">API<span class="k">Node.js · REST</span></div>
+        <div class="seg"></div>
+        <div class="node">Auth<span class="k">JWT</span></div>
+        <div class="seg"></div>
+        <div class="node">Cache<span class="k">Redis</span></div>
+        <div class="seg"></div>
+        <div class="node">DB<span class="k">Postgres / MySQL</span></div>
+      </div>
+    </div>
   </section>
 </template>
 

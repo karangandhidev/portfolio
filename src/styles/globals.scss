@@ -1,16 +1,10 @@
+@use "./_variables" as *;
 @use "./navbar";
 @use "./main";
 
 :root {
-  --background: $intro-text-color;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #{$bg};
+  --foreground: #{$text-color};
 }
 
 html,
@@ -22,7 +16,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: $font-body;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -38,8 +32,20 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+::selection {
+  background: $cyan;
+  color: $bg;
 }
+
+:focus-visible {
+  outline: 2px solid $cyan;
+  outline-offset: 3px;
+}
+
+html {
+  color-scheme: dark;
+}
+
+h1, h2, h3 {
+  font-family: $font-display;
+} 

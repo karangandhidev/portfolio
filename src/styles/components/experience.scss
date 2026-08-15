@@ -2,32 +2,43 @@
 @use "../_mixins" as *;
 
 .experience {
-  padding: ptr(48px) ptr(32px);
+  padding: ptr(80px) ptr(32px);
+  max-width: 860px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h2 {
-    font-size: ptr(32px);
-    margin-bottom: ptr(32px);
-    color: $primary-color;
-    text-align: center;
+    font-size: ptr(28px);
+    margin-bottom: ptr(40px);
+    color: $text-color;
 
     @include mobile {
-      font-size: ptr(28px);
-      margin-bottom: ptr(24px);
+      font-size: ptr(24px);
+      margin-bottom: ptr(28px);
     }
   }
 
   .exp-entry {
-    margin-bottom: ptr(32px);
-    border-left: 4px solid $primary-color;
-    padding-left: ptr(16px);
+    margin-bottom: ptr(28px);
+    background: $panel;
+    border: 1px solid $line;
+    border-left: 3px solid $cyan;
+    border-radius: 8px;
+    padding: ptr(22px) ptr(24px);
 
     @include mobile {
-      margin-bottom: ptr(24px);
-      padding-left: ptr(12px);
+      padding: ptr(16px) ptr(18px);
+      margin-bottom: ptr(20px);
     }
 
     h3 {
-      margin-bottom: ptr(4.8px);
+      font-family: $font-display;
+      font-size: ptr(18px);
+      font-weight: 600;
+      color: $text-color;
+      margin-bottom: ptr(4px);
 
       @include mobile {
         font-size: ptr(16px);
@@ -35,19 +46,25 @@
     }
 
     span {
-      color: #777;
-      font-size: ptr(13.6px);
+      display: inline-block;
+      font-family: $font-mono;
+      color: $amber;
+      font-size: ptr(12px);
+      margin-bottom: ptr(12px);
 
       @include mobile {
-        font-size: ptr(12.8px);
+        font-size: ptr(11px);
       }
     }
 
     p {
       margin-top: ptr(8px);
+      color: $muted-text;
+      font-size: ptr(15px);
+      line-height: 1.7;
 
       @include mobile {
-        font-size: ptr(15px);
+        font-size: ptr(14px);
       }
     }
   }

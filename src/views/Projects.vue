@@ -71,30 +71,30 @@ import "@/styles/components/projects.scss";
 
 const showcaseProjects = [
   {
-    name: "Mindweave – Visual Thinking, Simplified",
-    desc: "A minimalist, local-first canvas app for mapping out thoughts using draggable notes and connections. Built for clarity and focus, not chaos.",
-    link: "https://mindweave.karangandhi.dev",
-  },
-  {
-    name: "Reddit Subscription Manager",
-    desc: "A fast, privacy-respecting tool to manage your Reddit subscriptions in bulk. Filter Normal or NSFW subreddits, sort by subscribed or unsubscribed, manage multi-feeds, and batch unsubscribe — all with offline storage and no tracking.",
-    link: "https://redditbulksubtool.karangandhi.dev",
-  },
-  {
-    name: "Yelp Restaurant Recommendation System",
-    desc: "A recommendation system for restaurants based on data analysis using the official Yelp dataset.",
-    code: "https://github.com/karangandhidev/YelpRecommendationSystem",
-  },
-  {
     name: "Shashwat Society Dashboard",
-    desc: "Full-featured ticketing system for a group of societies",
+    desc: "Full-stack ticketing system for a group of societies, built on Next.js and PostgreSQL — covers ticket lifecycle, role-based access, and multi-tenant data handling.",
     link: "https://shashwatsociety.vercel.app",
     code: "https://github.com/karangandhidev/shashwatsociety",
   },
   {
-    name: "OnePass - A Secure Data Locker & Password Generator",
-    desc: "A secure data locker and password generator built using React Native and MongoDB.",
+    name: "MindWeave – Visual Thinking, Simplified with Real-time Sync",
+    desc: "Infinite-canvas brainstorming platform built around a real-time, offline-first sync engine on Postgres and Supabase, with conflict resolution so edits reconcile cleanly after network interruptions.",
+    link: "https://mindweave.karangandhi.dev",
+  },
+  {
+    name: "OnePass — Secure Data Locker & Password Generator",
+    desc: "Encrypted credential storage and password generator built on React Native and MongoDB, with local encryption before any data leaves the device.",
     code: "https://github.com/karangandhidev/DataLocker-PasswordGenerator",
+  },
+  {
+    name: "Yelp Restaurant Recommendation System",
+    desc: "Recommendation engine built on the official Yelp dataset — data cleaning, similarity scoring, and ranking logic for restaurant suggestions.",
+    code: "https://github.com/karangandhidev/YelpRecommendationSystem",
+  },
+  {
+    name: "Reddit Subscription Manager",
+    desc: "Bulk subreddit management tool with batch subscribe/unsubscribe, multi-feed handling, and fully offline local storage — no server, no tracking.",
+    link: "https://redditbulksubtool.karangandhi.dev",
   },
 ];
 

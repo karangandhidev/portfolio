@@ -1,16 +1,28 @@
-// --- Color Palette ---
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-$accent-color: #e74c3c;
-$light-bg: #f4f4f4;
-$dark-bg: #2c3e50;
-$text-color: #333;
-$muted-text: #7f8c8d;
-$border-color: #bdc3c7;
+// --- Color Palette: dark systems/engineering aesthetic ---
+$bg: #12151a;
+$panel: #1a1e25;
+$panel-2: #20242c;
+$line: #2b303a;
+$text-color: #e7eaee;
+$muted-text: #8b94a3;
+$cyan: #5eead4;
+$amber: #f5a623;
+$border-color: $line;
+
+// legacy aliases kept so nothing silently breaks
+$primary-color: $cyan;
+$secondary-color: $amber;
+$accent-color: $amber;
+$light-bg: $panel;
+$dark-bg: $bg;
+$text-color-muted: $muted-text;
 
 // --- Typography ---
-$font-family-primary: "Roboto", sans-serif;
-$font-family-secondary: "Arial", sans-serif;
+$font-display: "Space Grotesk", sans-serif;
+$font-body: "Inter", sans-serif;
+$font-mono: "JetBrains Mono", monospace;
+$font-family-primary: $font-body;
+$font-family-secondary: $font-mono;
 
 $font-size-base: 1rem;
 $font-size-lg: 1.25rem;
@@ -28,13 +40,13 @@ $spacing-md: 2rem;
 $spacing-lg: 3rem;
 
 // --- Border Radius ---
-$border-radius: 0.5rem;
-$border-radius-lg: 1rem;
+$border-radius: 8px;
+$border-radius-lg: 12px;
 
 // --- Box Shadows ---
-$box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
-$box-shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.15);
-$box-shadow-dark: 0 10px 20px rgba(0, 0, 0, 0.2);
+$box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.25);
+$box-shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.35);
+$box-shadow-dark: 0 10px 24px rgba(0, 0, 0, 0.45);
 
 // --- Breakpoints ---
 $breakpoint-xs: 480px;
@@ -48,26 +60,20 @@ $z-index-modal: 1050;
 $z-index-tooltip: 1100;
 
 // --- Specific Section Styles ---
+$intro-bg: $bg;
+$intro-text-color: $text-color;
 
-// Intro Section
-$intro-bg: $primary-color;
-$intro-text-color: #fff;
+$blog-item-border: $line;
+$blog-item-hover-bg: $panel-2;
 
-// Blog Section
-$blog-item-border: $border-color;
-$blog-item-hover-bg: $light-bg;
+$project-card-bg: $panel;
+$project-card-border: $line;
+$project-card-hover-bg: $panel-2;
 
-// Project Section
-$project-card-bg: $light-bg;
-$project-card-border: $border-color;
-$project-card-hover-bg: $primary-color;
+$contact-form-bg: $panel;
+$contact-input-border: $line;
+$contact-button-bg: $cyan;
+$contact-button-hover-bg: $amber;
 
-// Contact Section
-$contact-form-bg: $light-bg;
-$contact-input-border: $border-color;
-$contact-button-bg: $primary-color;
-$contact-button-hover-bg: $secondary-color;
-
-// Experience Section
-$experience-item-border: $border-color;
-$experience-item-hover-bg: $light-bg;
+$experience-item-border: $line;
+$experience-item-hover-bg: $panel-2;
