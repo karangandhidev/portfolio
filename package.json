@@ -16,7 +16,7 @@
     "vue3-carousel": "^0.16.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^6.0.0",
+    "@vitejs/plugin-vue": "^6.0.8",
     "vite": "^7.0.4",
     "vite-tsconfig-paths": "^5.1.4"
   }
